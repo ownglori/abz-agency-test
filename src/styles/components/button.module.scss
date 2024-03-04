@@ -1,0 +1,23 @@
+@import "@/styles/abstracts/variables";
+
+
+.button {
+  display: flex;
+  color: $body-color;
+  background-color: $primary;
+  border: 0;
+  outline: none;
+  padding: 4px 23px;
+  border-radius: 80px;
+
+  &:hover {
+    background-color: $primary-hover;
+    cursor: pointer;
+  }
+
+  &[type="disabled"] {
+    color: $button-disabled-color;
+    background-color: $button-disabled-bg;
+    cursor: default;
+  }
+}
