@@ -1,0 +1,30 @@
+@import "@/styles/abstracts/variables";
+
+
+.header {
+  background-color: $white;
+}
+
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+
+  svg {
+    width: 104px;
+    height: 26px;
+  }
+}
+
+.navigation {
+  display: flex;
+  margin: 0 -5px;
+}
+
+.navigation_item {
+  padding: 13px 5px;
+}

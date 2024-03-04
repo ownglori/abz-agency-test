@@ -1,10 +1,8 @@
 import {stylesButton} from "@/styles";
 
 
-export const Button = ({children, type, disabled}) => {
-  return (
-    <button type={type} disabled={disabled} className={stylesButton.button}>
-      {children}
-    </button>
-  );
-};
+export const Button = ({element: Element, type, disabled, href, children}) => (
+  <Element type={type} href={href} disabled={disabled} className={stylesButton.button}>
+    {children}
+  </Element>
+);
