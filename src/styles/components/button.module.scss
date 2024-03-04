@@ -3,6 +3,8 @@
 
 .button {
   display: flex;
+  justify-content: center;
+  align-items: center;
   color: $body-color;
   background-color: $primary;
   border: 0;
@@ -10,6 +12,7 @@
   padding: 4px 23px;
   border-radius: 80px;
   text-decoration: none;
+  min-width: 100px;
 
   &:hover {
     background-color: $primary-hover;
