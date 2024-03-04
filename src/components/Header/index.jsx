@@ -1,11 +1,11 @@
-import {Button} from "@/components";
+import {Container, Button} from "@/components";
 import {Logo} from "@/icons";
-import {stylesContainer, stylesHeader} from "@/styles";
+import {stylesHeader} from "@/styles";
 
 
 export const Header = () => (
   <header className={stylesHeader.header}>
-    <div className={stylesContainer.container}>
+    <Container>
       <div className={stylesHeader.header_container}>
         <a href="/" className={stylesHeader.logo}>
           <Logo/>
@@ -19,6 +19,6 @@ export const Header = () => (
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   </header>
 );
