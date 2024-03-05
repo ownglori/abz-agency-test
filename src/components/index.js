@@ -9,3 +9,4 @@ export * from "@/components/Main";
 export * from "@/components/Users";
 export * from "@/components/CardUser";
 export * from "@/components/Tooltip";
+export * from "@/components/Loader";
