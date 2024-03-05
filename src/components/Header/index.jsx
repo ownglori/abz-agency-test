@@ -7,9 +7,9 @@ export const Header = () => (
   <header className={stylesHeader.header}>
     <Container>
       <div className={stylesHeader.header_container}>
-        <a href="/" className={stylesHeader.logo}>
+        <div className={stylesHeader.logo}>
           <Logo/>
-        </a>
+        </div>
         <div className={stylesHeader.navigation}>
           <div className={stylesHeader.navigation_item}>
             <Button element={"a"} href={"#users"}>Users</Button>
