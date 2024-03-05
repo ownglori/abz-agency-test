@@ -11,7 +11,7 @@ export const Banner = () => (
           <source srcSet={imageBannerSm} media="(max-width: 360px)"/>
           <source srcSet={imageBannerMd} media="(max-width: 768px)"/>
           <source srcSet={imageBannerLg} media="(max-width: 1024px)"/>
-          <img src={imageBanner} alt="banner"/>
+          <img src={imageBanner} alt={"banner"}/>
         </picture>
         <div className={stylesBanner.banner_text}>
           <div className={stylesBanner.banner_text_container}>

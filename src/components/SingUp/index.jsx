@@ -2,10 +2,11 @@ import {useEffect, useState} from "react";
 import {Button, Container, Head, Input, Loader} from "@/components";
 import {validateName, validateEmail, validateFile, validatePhone} from "@/helpers";
 import {API} from "@/constants";
+import {imageFormSuccess} from "@/images";
 import {stylesSingUp} from "@/styles";
 
 
-export const SingUp = () => {
+export const SingUp = ({resetPagination}) => {
   const [positions, setPositions] = useState([]);
 
   const [loading, setLoading] = useState(true);
@@ -64,6 +65,7 @@ export const SingUp = () => {
       setPhone({value: "", error: false});
       setPosition({value: "", error: false});
       setFile({value: "", error: false});
+      resetPagination();
     } else {
       setEmail({value: email.value, error: result.message});
       setPhone({value: phone.value, error: result.message});
@@ -134,6 +136,19 @@ export const SingUp = () => {
   }
 
   useEffect(() => getPositions(API.POSITIONS), []);
+
+  if (success) {
+    return (
+      <section className={stylesSingUp.sing_up} id={"singUp"}>
+        <Container>
+          <div className={stylesSingUp.sing_up_head}>
+            <Head element={"h2"}>User successfully registered</Head>
+          </div>
+          <img src={imageFormSuccess} alt={"imageFormSuccess"} className={stylesSingUp.sing_up_form_success_image}/>
+        </Container>
+      </section>
+    );
+  }
 
   return (
     <section className={stylesSingUp.sing_up} id={"singUp"}>

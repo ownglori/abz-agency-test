@@ -7,9 +7,9 @@ export const App = () => {
   const [data, setData] = useState({users: [], current_page: null, last_page: false});
   const [loading, setLoading] = useState(true);
 
-  const fetchSuccess = (result) => {
+  const fetchSuccess = (result, resetPagination) => {
     setData({
-      users: [...data.users, ...result.users],
+      users: resetPagination ? result.users : [...data.users, ...result.users],
       current_page: result.page,
       last_page: result.page === result.total_pages
     });
@@ -19,28 +19,30 @@ export const App = () => {
     console.error(error);
   };
 
-  const fetchHandler = (result) => {
+  const fetchHandler = (result, resetPagination) => {
     if (result.success) {
-      fetchSuccess(result);
+      fetchSuccess(result, resetPagination);
     } else {
       fetchError(result.message);
     }
   };
 
-  const getUsers = (link) => {
+  const getUsers = (link, resetPagination) => {
     setLoading(true);
 
     fetch(link)
       .then(response => response.json())
-      .then(result => fetchHandler(result))
+      .then(result => fetchHandler(result, resetPagination))
       .then(() => setLoading(false))
-      .catch(error => fetchError(error))
+      .catch(error => fetchError(error));
   };
 
   const showMoreUsers = () => {
     setLoading(true);
-    getUsers(`${API.USERS}?page=${data.current_page + 1}&count=6`)
+    getUsers(`${API.USERS}?page=${data.current_page + 1}&count=6`);
   };
+
+  const resetPagination = () => getUsers(`${API.USERS}?page=1&count=6`, true);
 
   useEffect(() => getUsers(`${API.USERS}?page=1&count=6`), []);
 
@@ -50,7 +52,7 @@ export const App = () => {
       <Main>
         <Banner/>
         <Users data={data} loading={loading} buttonHandler={showMoreUsers}/>
-        <SingUp/>
+        <SingUp resetPagination={resetPagination}/>
       </Main>
     </>
   );
