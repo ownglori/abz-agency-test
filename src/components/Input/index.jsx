@@ -2,7 +2,7 @@ import {useCallback} from "react";
 import {stylesInput} from "@/styles";
 
 
-export const Input = ({id, type, name, label, placeholder, accept, helper, value, onChange, error}) => {
+export const Input = ({id, type, name, label, placeholder, accept, helper, checked, value, onChange, error}) => {
   const inputHandler = useCallback((event) => onChange(event.target), [onChange]);
 
   switch (type) {
@@ -10,7 +10,7 @@ export const Input = ({id, type, name, label, placeholder, accept, helper, value
       return (
         <div className={stylesInput.input_radio_container}>
           <input type="radio" className={stylesInput.input_radio} id={id} name={name} value={value}
-                 onChange={inputHandler}/>
+                 onChange={inputHandler} checked={parseInt(checked) === value}/>
           <label htmlFor={id}>{label}</label>
         </div>
       );

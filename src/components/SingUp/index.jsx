@@ -7,7 +7,11 @@ import {stylesSingUp} from "@/styles";
 
 export const SingUp = () => {
   const [positions, setPositions] = useState([]);
+
   const [loading, setLoading] = useState(true);
+  const [pending, setPending] = useState(false);
+  const [success, setSuccess] = useState(false);
+
   const [name, setName] = useState({value: "", error: false});
   const [email, setEmail] = useState({value: "", error: false});
   const [phone, setPhone] = useState({value: "", error: false});
@@ -48,7 +52,61 @@ export const SingUp = () => {
       .then(response => response.json())
       .then(result => getPositionsSuccess(result))
       .then(() => setLoading(false))
-      .catch(error => fetchError(error))
+      .catch(error => fetchError(error));
+  };
+
+  const singUpUserSuccess = (result) => {
+    if (result.success) {
+      setSuccess(true);
+      setPending(false);
+      setName({value: "", error: false});
+      setEmail({value: "", error: false});
+      setPhone({value: "", error: false});
+      setPosition({value: "", error: false});
+      setFile({value: "", error: false});
+    } else {
+      setEmail({value: email.value, error: result.message});
+      setPhone({value: phone.value, error: result.message});
+      fetchError(result.message);
+    }
+  };
+
+  const singUpUser = (token, formData) => {
+    const init = {
+      method: "POST",
+      body: formData,
+      headers: {
+        "Token": token
+      }
+    };
+
+    fetch(API.USERS, init)
+      .then(response => response.json())
+      .then(result => singUpUserSuccess(result))
+      .catch(error => fetchError(error));
+  }
+
+  const getTokenSuccess = (result) => {
+    if (result.success) {
+      return result.token;
+    } else {
+      fetchError(result.message);
+    }
+  };
+
+  const getToken = () => {
+    return fetch(API.TOKEN)
+      .then(response => response.json())
+      .then(result => getTokenSuccess(result))
+      .catch(error => fetchError(error));
+  };
+
+  const singUp = (formData) => {
+    setPending(true);
+
+    getToken()
+      .then(token => singUpUser(token, formData))
+      .catch(error => fetchError(error));
   };
 
   const formHandler = (event) => {
@@ -69,6 +127,10 @@ export const SingUp = () => {
     if (!vPhone.success) {
       return setPhone({value: phone.value, error: vPhone.message});
     }
+
+    const formData = new FormData(event.target)
+
+    singUp(formData);
   }
 
   useEffect(() => getPositions(API.POSITIONS), []);
@@ -95,10 +157,10 @@ export const SingUp = () => {
           </div>
           <div className={stylesSingUp.sing_up_form_input}>
             <div className={stylesSingUp.sing_up_form_radio_head}>Select your position</div>
-            {positions.map((position) => (
-              <div key={position.id} className={stylesSingUp.sing_up_form_radio}>
-                <Input type={"radio"} name={"position_id"} id={position.id} label={position.name} value={position.id}
-                       checked={position.value} onChange={positionHandler}/>
+            {positions.map((positionMap) => (
+              <div key={positionMap.id} className={stylesSingUp.sing_up_form_radio}>
+                <Input type={"radio"} name={"position_id"} id={positionMap.id} label={positionMap.name}
+                       value={positionMap.id} checked={position.value} onChange={positionHandler}/>
               </div>
             ))}
           </div>
@@ -108,7 +170,7 @@ export const SingUp = () => {
           </div>
           <div className={stylesSingUp.sing_up_button}>
             <Button element={"button"} type={"submit"}
-                    disabled={!(name.value.length > 0 && email.value.length > 0 && phone.value.length > 0 && position.value.length > 0 && file.value)}>
+                    disabled={!(name.value.length > 0 && email.value.length > 0 && phone.value.length > 0 && position.value.length > 0 && file.value) || pending}>
               Sing up
             </Button>
           </div>
