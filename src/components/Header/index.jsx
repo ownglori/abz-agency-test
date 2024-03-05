@@ -15,7 +15,7 @@ export const Header = () => (
             <Button element={"a"} href={"#users"}>Users</Button>
           </div>
           <div className={stylesHeader.navigation_item}>
-            <Button element={"a"} href={"#singup"}>Sing up</Button>
+            <Button element={"a"} href={"#singUp"}>Sing up</Button>
           </div>
         </div>
       </div>

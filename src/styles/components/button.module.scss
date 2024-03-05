@@ -19,7 +19,7 @@
     cursor: pointer;
   }
 
-  &[type="disabled"] {
+  &:disabled {
     color: $button-disabled-color;
     background-color: $button-disabled-bg;
     cursor: default;

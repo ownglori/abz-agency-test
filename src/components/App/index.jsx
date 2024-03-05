@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {Header, Banner, Main, Users} from "@/components";
+import {Header, Banner, Main, Users, SingUp} from "@/components";
 import {API} from "@/constants";
 
 
@@ -50,6 +50,7 @@ export const App = () => {
       <Main>
         <Banner/>
         <Users data={data} loading={loading} buttonHandler={showMoreUsers}/>
+        <SingUp/>
       </Main>
     </>
   );

@@ -10,3 +10,5 @@ export * from "@/components/Users";
 export * from "@/components/CardUser";
 export * from "@/components/Tooltip";
 export * from "@/components/Loader";
+export * from "@/components/SingUp";
+export * from "@/components/Input";

@@ -24,7 +24,7 @@ export const Banner = () => (
               </Text>
             </div>
             <div className={stylesBanner.banner_text_button}>
-              <Button element={"a"} href={"#singup"}>Sing up</Button>
+              <Button element={"a"} href={"#singUp"}>Sing up</Button>
             </div>
           </div>
         </div>

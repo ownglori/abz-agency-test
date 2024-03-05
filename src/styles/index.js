@@ -9,6 +9,8 @@ import users from "@/styles/components/users.module.scss";
 import cardUser from "@/styles/components/card-user.module.scss";
 import tooltip from "@/styles/components/tooltip.module.scss";
 import loader from "@/styles/components/loader.module.scss";
+import singUp from "@/styles/components/sing-up.module.scss";
+import input from "@/styles/components/input.module.scss";
 
 
 export const stylesHeader = header;
@@ -22,3 +24,5 @@ export const stylesUsers = users;
 export const stylesCardUser = cardUser;
 export const stylesTooltip = tooltip;
 export const stylesLoader = loader;
+export const stylesSingUp = singUp;
+export const stylesInput = input;

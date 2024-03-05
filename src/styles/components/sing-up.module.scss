@@ -1,0 +1,26 @@
+@import "@/styles/abstracts/variables";
+
+
+.sing_up {
+  padding: 70px 0;
+}
+
+.sing_up_head {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.sing_up_form {
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.sing_up_form_input {
+  margin-top: 50px;
+}
+
+.sing_up_button {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}

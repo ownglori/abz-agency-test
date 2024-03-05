@@ -1,0 +1,73 @@
+@import "@/styles/abstracts/variables";
+
+
+.input_floating {
+  position: relative;
+}
+
+.input_floating_error {
+  .input_floating_input {
+    border: 1px solid $danger;
+  }
+
+  .input_floating_label {
+    color: $danger;
+  }
+}
+
+.input_floating_input {
+  width: 100%;
+  border: 1px solid $input-border-color;
+  border-radius: 4px;
+  outline: none;
+  padding: 13px 16px;
+  background-color: $transparent;
+
+  &::placeholder {
+    visibility: hidden;
+  }
+
+  &:focus {
+    & ~ .input_floating_label {
+      font-size: 12px;
+      line-height: 14px;
+      padding: 0 4px;
+      height: auto;
+      transform: translateY(-7px);
+      left: 13px;
+      background-color: $body-bg-color;
+    }
+  }
+
+  &:not(:placeholder-shown) {
+    & ~ .input_floating_label {
+      font-size: 12px;
+      line-height: 14px;
+      padding: 0 4px;
+      height: auto;
+      transform: translateY(-7px);
+      left: 13px;
+      background-color: $body-bg-color;
+    }
+  }
+}
+
+.input_floating_label {
+  position: absolute;
+  top: 0;
+  left: 13px;
+  height: 100%;
+  padding: 14px 16px 14px 4px;
+  color: $input-color;
+  cursor: text;
+  transition: transform 0.2s ease-in-out;
+}
+
+.input_floating_helper_text {
+  font-size: 12px;
+  line-height: 14px;
+  color: $input-color;
+  position: absolute;
+  bottom: -18px;
+  left: 17px;
+}
