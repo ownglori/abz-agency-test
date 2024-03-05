@@ -1,0 +1,51 @@
+.users {
+  padding: 70px 0;
+}
+
+.users_head {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.users_row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -20px -10px 0;
+}
+
+.users_col {
+  width: 100%;
+  flex: 0 0 auto;
+  margin-top: 20px;
+  padding: 0 10px;
+}
+
+.users_button {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+@media (min-width: 768px) {
+  .users_row {
+    margin: -16px -8px 0;
+  }
+
+  .users_col {
+    width: 50%;
+    margin-top: 16px;
+    padding: 0 8px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .users_row {
+    margin: -29px -14.5px 0;
+  }
+
+  .users_col {
+    width: 33.33333333%;
+    margin-top: 29px;
+    padding: 0 14.5px;
+  }
+}

@@ -5,6 +5,8 @@ import banner from "@/styles/components/banner.module.scss";
 import head from "@/styles/components/head.module.scss";
 import text from "@/styles/components/text.module.scss";
 import main from "@/styles/components/main.module.scss";
+import users from "@/styles/components/users.module.scss";
+import cardUser from "@/styles/components/card-user.module.scss";
 
 
 export const stylesHeader = header;
@@ -14,3 +16,5 @@ export const stylesBanner = banner;
 export const stylesHead = head;
 export const stylesText = text;
 export const stylesMain = main;
+export const stylesUsers = users;
+export const stylesCardUser = cardUser;

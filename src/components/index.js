@@ -6,3 +6,5 @@ export * from "@/components/Banner";
 export * from "@/components/Head";
 export * from "@/components/Text";
 export * from "@/components/Main";
+export * from "@/components/Users";
+export * from "@/components/CardUser";
