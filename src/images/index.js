@@ -1,7 +1,7 @@
-import banner from "@/images/banners/banner.jpg";
-import bannerLg from "@/images/banners/banner-lg.jpg";
-import bannerMd from "@/images/banners/banner-md.jpg";
-import bannerSm from "@/images/banners/banner-sm.jpg";
+import banner from "@/images/banners/banner.webp";
+import bannerLg from "@/images/banners/banner-sm.webp";
+import bannerMd from "@/images/banners/banner-sm.webp";
+import bannerSm from "@/images/banners/banner-sm.webp";
 
 
 export const imageBanner = banner;
