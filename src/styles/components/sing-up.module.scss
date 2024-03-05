@@ -11,6 +11,7 @@
 }
 
 .sing_up_form {
+  position: relative;
   max-width: 380px;
   margin: 0 auto;
 }
@@ -23,4 +24,14 @@
   display: flex;
   justify-content: center;
   margin-top: 50px;
+}
+
+.sing_up_form_radio {
+  &:not(:last-child) {
+    margin-bottom: 7px;
+  }
+}
+
+.sing_up_form_radio_head {
+  margin-bottom: 10px;
 }

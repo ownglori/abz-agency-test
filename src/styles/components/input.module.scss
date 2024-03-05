@@ -10,7 +10,7 @@
     border: 1px solid $danger;
   }
 
-  .input_floating_label {
+  .input_floating_label, .input_floating_helper_text {
     color: $danger;
   }
 }
@@ -63,7 +63,7 @@
   transition: transform 0.2s ease-in-out;
 }
 
-.input_floating_helper_text {
+.input_floating_helper_text, .input_file_helper_text {
   font-size: 12px;
   line-height: 14px;
   color: $input-color;
@@ -76,7 +76,22 @@
   display: none;
 }
 
+.input_file_error {
+  .input_file_label {
+    border: 1px solid $danger;
+  }
+
+  .input_floating_label, .input_file_helper_text {
+    color: $danger;
+  }
+
+  &.input_file_container {
+    border: 1px solid $danger;
+  }
+}
+
 .input_file_container {
+  position: relative;
   display: flex;
   width: 100%;
   border: 1px solid $input-border-color;
@@ -97,4 +112,25 @@
   padding: 13px 16px;
   margin: -1px -1px -1px 0;
   color: $input-color;
+}
+
+.input_radio_container {
+  display: flex;
+  align-items: center;
+}
+
+.input_radio {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-clip: content-box;
+  border: 1px solid $input-border-color;
+  margin-right: 12px;
+
+  &:checked {
+    background-color: $secondary;
+    padding: 4px;
+    border: 1px solid $secondary;
+  }
 }

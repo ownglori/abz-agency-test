@@ -8,6 +8,7 @@
   position: absolute;
   inset: 0;
   background-color: $body-bg-color;
+  z-index: 1;
 }
 
 .loader {
