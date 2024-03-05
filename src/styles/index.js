@@ -7,6 +7,7 @@ import text from "@/styles/components/text.module.scss";
 import main from "@/styles/components/main.module.scss";
 import users from "@/styles/components/users.module.scss";
 import cardUser from "@/styles/components/card-user.module.scss";
+import tooltip from "@/styles/components/tooltip.module.scss";
 
 
 export const stylesHeader = header;
@@ -18,3 +19,4 @@ export const stylesText = text;
 export const stylesMain = main;
 export const stylesUsers = users;
 export const stylesCardUser = cardUser;
+export const stylesTooltip = tooltip;
